@@ -1,12 +1,12 @@
 name: Beta access request
-description: Request TestFlight access to WatchDiver as a secondary display.
+description: Request TestFlight access to Nullzeit as a secondary display.
 title: "Beta access request"
 labels: ["beta"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for wanting to test WatchDiver! Remember: it is a **secondary display,
+        Thanks for wanting to test Nullzeit! Remember: it is a **secondary display,
         not a certified dive computer** — you always dive it next to an independent,
         certified computer.
 
@@ -24,7 +24,7 @@ body:
     id: reference-computer
     attributes:
       label: Reference dive computer
-      description: The certified dive computer you will wear next to WatchDiver during the beta.
+      description: The certified dive computer you will wear next to Nullzeit during the beta.
       placeholder: "e.g. Shearwater Peregrine, Suunto D5, Garmin Descent Mk3, Mares Puck Pro"
     validations:
       required: true
@@ -33,7 +33,7 @@ body:
     attributes:
       label: Confirmations
       options:
-        - label: I dive an Apple Watch Ultra and will use WatchDiver only as a secondary display next to my certified dive computer.
+        - label: I dive an Apple Watch Ultra and will use Nullzeit only as a secondary display next to my certified dive computer.
           required: true
   - type: markdown
     attributes:
