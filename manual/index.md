@@ -1,17 +1,17 @@
 ---
-title: WatchDiver Manual
+title: Nullzeit Manual
 ---
 
-# WatchDiver Manual
+# Nullzeit Manual
 
-> Mirror of the WatchDiver in-app Manual page — generated from the app sources (`swift run generate-manual`), published for reading on the phone via the QR code on the watch. [← watchdiver home](../)
+> Mirror of the Nullzeit in-app Manual page — generated from the app sources (`swift run generate-manual`), published for reading on the phone via the QR code on the watch. [← nullzeit home](../)
 
 ## Read me first
 
 <p align="center"><img src="../assets/screens/ready.png?v=3" alt="READY screen with gas, gradient factors, sensor limit and the secondary-display disclaimer" width="240"><br><em>Pre-dive READY screen — the disclaimer is always visible.</em></p>
 
 
-WatchDiver is a SECONDARY DISPLAY, not a certified dive computer (no EN 13319, no redundancy). Always dive with an independent, certified dive computer and follow it and your training. If the two displays disagree, the certified computer wins — every time. Test each build with a demo dive (“Try it on land”, below) on land before taking it near water.
+Nullzeit is a SECONDARY DISPLAY, not a certified dive computer (no EN 13319, no redundancy). Always dive with an independent, certified dive computer and follow it and your training. If the two displays disagree, the certified computer wins — every time. Test each build with a demo dive (“Try it on land”, below) on land before taking it near water.
 
 ## Get it on your wrist
 
@@ -19,12 +19,12 @@ Press DIVE on the READY screen before entering the water — that is the determi
 
 | Term | Meaning |
 |---|---|
-| **First start** | On its first launch WatchDiver asks for the depth-sensor permission and offers the Auto-Launch setup — on dry land, because the permission dialog cannot be answered once Water Lock owns the screen. |
+| **First start** | On its first launch Nullzeit asks for the depth-sensor permission and offers the Auto-Launch setup — on dry land, because the permission dialog cannot be answered once Water Lock owns the screen. |
 | **DIVE button** | Arms the dive before you enter the water. After opening, the app stays in front for 30 minutes — enough preparation time. Leave the Digital Crown alone once armed: unlocking Water Lock ends the background session. |
-| **Auto-start (app in front)** | If WatchDiver is on screen when you submerge below 1 m, the dive starts by itself — the watch hands the app a dive session automatically. |
-| **Auto-Launch (app closed)** | Which dive app opens on submersion is a watch setting: Settings → General → Auto-Launch → When Submerged. Select WatchDiver there — otherwise Apple's Depth app takes the dive. Developer-installed builds can be missing from that list (a known watchOS bug); then always start the dive from the app before entering the water. |
-| **One dive session only** | The watch runs a single dive session at a time. Whichever app starts it owns the dive; WatchDiver and the Depth app never run one simultaneously. |
-| **Session ended mid-dive** | If the watch kills the depth session while the workout net still carries the app, WatchDiver re-arms silently (the event goes to the diagnostics log). A red message appears only when the underwater runtime is actually lost — then keep WatchDiver in front, or reopen it. |
+| **Auto-start (app in front)** | If Nullzeit is on screen when you submerge below 1 m, the dive starts by itself — the watch hands the app a dive session automatically. |
+| **Auto-Launch (app closed)** | Which dive app opens on submersion is a watch setting: Settings → General → Auto-Launch → When Submerged. Select Nullzeit there — otherwise Apple's Depth app takes the dive. Developer-installed builds can be missing from that list (a known watchOS bug); then always start the dive from the app before entering the water. |
+| **One dive session only** | The watch runs a single dive session at a time. Whichever app starts it owns the dive; Nullzeit and the Depth app never run one simultaneously. |
+| **Session ended mid-dive** | If the watch kills the depth session while the workout net still carries the app, Nullzeit re-arms silently (the event goes to the diagnostics log). A red message appears only when the underwater runtime is actually lost — then keep Nullzeit in front, or reopen it. |
 | **Health permission** | The first DIVE start asks for Health workout access: the dive keeps the app alive underwater as an open-water swim workout session. The session itself writes nothing to Health — only an explicit dive export does. |
 | **Ending a dive** | Surfacing ends the dive by itself: after 60 seconds continuously at the surface the log page appears, the background sessions end and the armed state clears — no button needed. Briefly breaking the surface (wave chop, a quick look around) does not end or split the dive. The next dive starts with DIVE again (or automatically if you re-submerge); tissue loading carries over. Cancel exists only for an armed dive that never went below 1 m. |
 
@@ -151,7 +151,7 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 | **NO FLY** | Model estimate of the wait before flying (0.75 bar cabin). Read as “at least”: DAN guidelines (12 h after one no-deco dive, 18 h after repetitive dives) apply independently. |
 | **END GF** | Surfacing gradient factor at the moment you left the water — the log's “how close was that” number. |
 | **SURFACE INTERVAL** | Time since surfacing. Tissues keep off-gassing in the model, so a repetitive dive starts correctly pre-loaded. |
-| **UDDF** | Universal Dive Data Format — the open XML interchange format desktop logbooks (e.g. Subsurface) and dive-log websites read. Swipe a logbook dive right to share it as a .uddf file from the watch. |
+| **UDDF** | Universal Dive Data Format — the open XML interchange format desktop logbooks (e.g. Subsurface) and dive-log websites read. Swipe a logbook dive right to share it as a .uddf file from the watch. The file carries the depth and temperature profile, gas, water density, and — when the watch got a GPS fix while you armed the dive — the position where you entered the water. The first Live start asks for location permission; declining it just means your dives carry no position. |
 | **QR code** | At the top of the Manual page: point the iPhone camera at it to open this manual in the browser — for comfortable reading on a bigger screen. Needs internet on the phone; the watch itself never does. |
 
 ## Settings, explained
@@ -160,7 +160,7 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 |---|---|
 | **Gas** | Air or nitrox preset. Changing gas keeps your tissue loading — safe to switch between repetitive dives. Check the MOD shown per gas. |
 | **Gradient factors** | 30/70 conservative → 50/95 aggressive. When in doubt, keep 45/85 or ask your instructor. Lower numbers = earlier, longer stops. |
-| **Water** | Salt (default) or fresh. The depth sensor is calibrated for salt water; in fresh water the same pressure means a slightly greater depth, so WatchDiver corrects the displayed depth (~2 % deeper). Tissue loading follows the measured pressure and is unaffected. |
+| **Water** | Salt (default) or fresh. The depth sensor is calibrated for salt water; in fresh water the same pressure means a slightly greater depth, so Nullzeit corrects the displayed depth (~2 % deeper). Tissue loading follows the measured pressure and is unaffected. |
 | **Altitude** | For mountain-lake diving; sets the surface pressure (shown per preset). Mountain lakes are fresh water — set Water to Fresh as well. Assumes you are already acclimatized at the site — arriving and diving immediately makes the model optimistic. |
 | **Locked during the dive** | Settings only work at the surface, by design — no configuration surprises underwater. |
 
