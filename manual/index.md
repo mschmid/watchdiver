@@ -70,6 +70,9 @@ Bühlmann ZH-L16C with gradient factors (Erik Baker): 16 theoretical nitrogen co
 <p align="center"><img src="../assets/screens/dive-air.png?v=3" alt="Dive page showing water temperature, dive time, depth and the no-deco limit" width="240"><br><em>Page 1, the dive display: depth rules the screen.</em></p>
 
 
+<p align="center"><img src="../assets/screens/logdetail.png?v=3" alt="Logbook detail page with a map of the entry point, the gas and the entry coordinates" width="240"><br><em>Page 3, a logbook dive's detail: a map of where you entered the water.</em></p>
+
+
 Turn the Digital Crown to change pages. Underwater the touchscreen is water-locked; everything is readable by glance, nothing needs a tap. The ring shows only pages that currently mean something: while diving (armed or submerged) it is Dive and Tissues; at the surface, Settings, the Planner and Manual are always there, the Logbook joins once it holds a dive, and Tissues stays visible while your tissues carry loading from a dive.
 
 | Term | Meaning |

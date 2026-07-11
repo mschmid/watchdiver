@@ -16,6 +16,7 @@ IMAGES = {
     ],
     "The six pages": [
         ("dive-air.png", "Dive page showing water temperature, dive time, depth and the no-deco limit", "Page 1, the dive display: depth rules the screen."),
+        ("logdetail.png", "Logbook detail page with a map of the entry point, the gas and the entry coordinates", "Page 3, a logbook dive's detail: a map of where you entered the water."),
     ],
     "Planner": [
         ("planner.png", "No-deco planner listing the no-stop time at a range of depths", "The surface planner: no-stop time by depth, from your current tissue loading."),
