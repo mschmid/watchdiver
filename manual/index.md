@@ -121,7 +121,7 @@ Colour is never the only signal — every state also changes its text. Teal = fi
 
 | Term | Meaning |
 |---|---|
-| **READY** | At the surface, before a dive: gas, GF, sensor limit, plus the DIVE button (demo dives live on the Manual page). The teal GAS and GF cells open their setting directly; LIMIT is the sensor's statement, not a choice. Notices (restored tissue state, no-fly, low battery) appear here. |
+| **READY** | At the surface, before a dive: gas, sensor limit and battery, plus the DIVE button (demo dives live on the Manual page). The teal GAS cell opens its setting directly; LIMIT is the sensor's statement, not a choice. Gradient factors and the rest live in Settings, not on this row — they change rarely. Notices (restored tissue state, no-fly, low battery) appear here. |
 | **Teal depth** | Inside the NDL, comfortably. Nothing to do but enjoy. |
 | **▲ ASCEND SOON (amber)** | NDL at or below 5 min: begin the ascent soon or accept a deco obligation. |
 | **DECOMPRESSION (amber badge)** | Direct ascent no longer allowed. The card shows the first stop (depth · minutes) and TTS. Ascend to the stop, never above it. |
@@ -157,7 +157,7 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 | **Tissue loading restored…** | The app was restarted and resumed the saved tissue state, off-gassed across the gap. Normal after closing the app between dives. |
 | **Restored after an interrupted dive — estimate degraded** | The app went down mid-dive; the gap was bridged conservatively by assumption. Trust only the certified computer for the rest of the day. |
 | **Depth sensor fault** | The watch itself flagged its depth reading as unreliable. The display can no longer be trusted for this dive. |
-| **BAT (GOOD / LOW / CRIT)** | Pre-dive battery cell on the READY screen, next to GAS/GF/LIMIT: GOOD at 80 % or more (the recommended charge before a dive), LOW below that, CRIT below 20 %. A standalone instrument that runs out of power loses the whole display, not just a convenience feature — charge to GOOD before entering the water. |
+| **BAT (GOOD / LOW / CRIT)** | Pre-dive battery cell on the READY screen, next to GAS/LIMIT: GOOD at 80 % or more (the recommended charge before a dive), LOW below that, CRIT below 20 %. A standalone instrument that runs out of power loses the whole display, not just a convenience feature — charge to GOOD before entering the water. |
 | **LOW BATTERY x%** | Watch battery below 20 % while diving — advisory. Start planning the ascent with margin. |
 | **BATTERY CRITICAL x%** | Watch battery below 10 % while diving — surface while there is still power to do so. Repeats every minute until you recharge. |
 
