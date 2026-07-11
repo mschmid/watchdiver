@@ -14,7 +14,7 @@ IMAGES = {
     "Read me first": [
         ("ready.png", "READY screen with gas, gradient factors, sensor limit and the secondary-display disclaimer", "Pre-dive READY screen — the disclaimer is always visible."),
     ],
-    "The five pages": [
+    "The six pages": [
         ("dive-air.png", "Dive page showing water temperature, dive time, depth and the no-deco limit", "Page 1, the dive display: depth rules the screen."),
     ],
     "Dive display, top to bottom": [

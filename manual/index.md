@@ -31,7 +31,7 @@ Press DIVE on the READY screen before entering the water — that is the determi
 | **One dive session only** | The watch runs a single dive session at a time. Whichever app starts it owns the dive; Nullzeit and the Depth app never run one simultaneously. |
 | **Session ended mid-dive** | If the watch kills the depth session while the workout net still carries the app, Nullzeit re-arms silently (the event goes to the diagnostics log). A red message appears only when the underwater runtime is actually lost — then keep Nullzeit in front, or reopen it. |
 | **Health permission** | The first DIVE start asks for Health workout access: the dive keeps the app alive underwater as an open-water swim workout session. The session itself writes nothing to Health — only an explicit dive export does. |
-| **Ending a dive** | Surfacing ends the dive by itself: after 60 seconds continuously at the surface the log page appears, the background sessions end and the armed state clears — no button needed. Briefly breaking the surface (wave chop, a quick look around) does not end or split the dive. The next dive starts with DIVE again (or automatically if you re-submerge); tissue loading carries over. Cancel exists only for an armed dive that never went below 1 m. |
+| **Ending a dive** | Surfacing ends the dive by itself: a teal “DIVE ENDING IN n s” countdown runs the 60-second grace period, then the log page appears, the background sessions end and the armed state clears — no button needed. Briefly breaking the surface (wave chop, a quick look around) does not end or split the dive; re-submerging during the countdown just continues it. The next dive starts with DIVE again (or automatically if you re-submerge); tissue loading carries over. Cancel exists only for an armed dive that never went below 1 m. |
 
 ## Try it on land
 
@@ -65,20 +65,33 @@ Breathing compressed gas under pressure dissolves nitrogen into your tissues. Su
 
 Bühlmann ZH-L16C with gradient factors (Erik Baker): 16 theoretical nitrogen compartments load and unload exponentially; the display warns when the most loaded one approaches its tolerated limit. Like every dive computer, it assumes average body conditions — cold, exertion, dehydration and personal physiology are not measured; dive conservatively when they apply.
 
-## The five pages
+## The six pages
 
 <p align="center"><img src="../assets/screens/dive-air.png?v=3" alt="Dive page showing water temperature, dive time, depth and the no-deco limit" width="240"><br><em>Page 1, the dive display: depth rules the screen.</em></p>
 
 
-Turn the Digital Crown to change pages. Underwater the touchscreen is water-locked; everything is readable by glance, nothing needs a tap. The ring shows only pages that currently mean something: while diving (armed or submerged) it is Dive and Tissues; at the surface, Settings and Manual are always there, the Logbook joins once it holds a dive, and Tissues stays visible while your tissues carry loading from a dive.
+Turn the Digital Crown to change pages. Underwater the touchscreen is water-locked; everything is readable by glance, nothing needs a tap. The ring shows only pages that currently mean something: while diving (armed or submerged) it is Dive and Tissues; at the surface, Settings, the Planner and Manual are always there, the Logbook joins once it holds a dive, and Tissues stays visible while your tissues carry loading from a dive.
 
 | Term | Meaning |
 |---|---|
 | **1 · Dive** | The main display: depth, time, and the one operative instruction (NDL, stop, or a directive). |
-| **2 · Tissues** | 16 bars, one per tissue compartment (fast → slow), each as % of its surface M-value. Long bars = loaded tissue. The header shows the live GF and ppO₂. |
-| **3 · Logbook** | Saved dives, newest first. Swipe a dive left to delete it; swipe right to save it to Apple Health or to share it as a UDDF file. |
-| **4 · Settings** | Gas, gradient factors, water type, altitude. Surface only — locked during the dive. |
-| **5 · Manual** | This reference: a QR code that opens this manual on your phone, the demo dives under “Try it”, and “Read manual” — the whole manual as one scrollable page. |
+| **2 · Tissues** | 16 bars, one per tissue compartment (fast → slow), each as % of its surface M-value. Long bars = loaded tissue. The header shows the live GF and ppO₂; below it the oxygen clock (CNS and OTU). |
+| **3 · Logbook** | Saved dives, newest first. Tap a dive to open its detail — a map of the entry point (when a GPS fix was captured), the depth profile and every stat, with Health and UDDF exports. Swipe a dive left to delete it; swipe right to save it to Apple Health or share it as a UDDF file. |
+| **4 · Planner** | Surface-only no-deco planner: the no-stop time at a range of depths from your current tissue loading. Scroll the depths with the Digital Crown. No-deco time only — never a deco schedule. |
+| **5 · Settings** | Gas, gradient factors, water type, altitude, mode (Computer/Gauge). Surface only — locked during the dive. |
+| **6 · Manual** | This reference: a QR code that opens this manual on your phone, the demo dives under “Try it”, and “Read manual” — the whole manual as one scrollable page. |
+
+## Planner
+
+The Planner (crown page 4, at the surface) answers one question before you get wet: how much no-stop time do I have at each depth, right now? It plans from your live tissue loading, so on a repetitive dive the times are already shortened — exactly as your dive would be. Scroll the depth list with the Digital Crown. It is a planning aid only: your certified computer still leads the dive.
+
+| Term | Meaning |
+|---|---|
+| **No-stop time only** | The Planner shows no-decompression time per depth — it never builds a decompression schedule (stop depths and times). Planning a deco profile needs a bottom time this table does not have, so it is deliberately left out rather than approximated. |
+| **no limit** | A depth so shallow that no practical no-stop limit exists under your current loading — an honest label, not a made-up number. Deeper rows show real minutes (floored, capped at 99+, like the dive display). |
+| **in deco** | At that depth, with your current tissue loading, you would already be past your no-stop time — a direct ascent would no longer be allowed. Shown in amber, never as a fake positive number. |
+| **PAST MOD (planner)** | The depth is deeper than the configured gas's MOD (oxygen-toxicity limit). The row stays in the table with its no-stop time, flagged amber — the Planner never hides or clamps a depth, it warns. |
+| **Planner in Gauge mode** | Gauge mode withholds all deco guidance, so the Planner withholds the no-stop table too — the same honesty rule as the dive display. Switch to Computer mode to plan, or plan by tables. |
 
 ## Dive display, top to bottom
 
@@ -94,6 +107,7 @@ Turn the Digital Crown to change pages. Underwater the touchscreen is water-lock
 | **GF n %** | Live surfacing gradient factor: how close the most loaded tissue would be to its Bühlmann limit if you surfaced now. 100 % = on the raw limit. |
 | **CEIL** | Direct-ascent ceiling (m), shown only in deco: do not ascend shallower than this right now. |
 | **Operative card** | Exactly one instruction at a time: the NDL countdown, or the first deco stop, or a red directive — never two at once. |
+| **GAUGE (badge)** | Gauge mode is active: the display shows only measured values (depth, runtime, max depth, ascent rate) and withholds all deco guidance — NDL, stops, TTS and GF are hidden, not computed away. Plan the dive by tables or a certified computer. Entered by choice (Settings → Mode) or automatically after a degraded recovery. |
 
 ## Screens and colours
 
@@ -103,7 +117,7 @@ Turn the Digital Crown to change pages. Underwater the touchscreen is water-lock
 <p align="center"><img src="../assets/screens/slow.png?v=3" alt="SLOW - ASCENT TOO FAST takeover showing 15 m/min against 10 max safe" width="240"><br><em>Ascending too fast: SLOW with the live rate against the safe maximum.</em></p>
 
 
-Colour is never the only signal — every state also changes its text. Teal = fine, amber = caution, red = act now. The background tints with depth and floods amber/red with severity.
+Colour is never the only signal — every state also changes its text. Teal = fine, amber = caution, red = act now. The background tints with depth and floods amber/red with severity. Night mode (Settings) drops colour altogether for a dark-adaptation-friendly dim red display — then the text and vibrations are the whole signal, which is exactly why they always carry it.
 
 | Term | Meaning |
 |---|---|
@@ -114,9 +128,10 @@ Colour is never the only signal — every state also changes its text. Teal = fi
 | **▼ ABOVE STOP — DESCEND (red)** | You are shallower than a mandatory stop: descend below the stop depth immediately. Pulsing red background, repeating strong buzz. |
 | **SLOW — ASCENT TOO FAST** | Ascending faster than 12 m/min. Full-screen takeover: slow down until it disappears (target ≤ 10 m/min). |
 | **ASCEND — PAST SENSOR LIMIT** | At/past the sensor's maximum depth. Depth data is unreliable from here — ascend. Warned in amber from 90 % of the limit (“NEAR x m SENSOR LIMIT”). |
-| **NO DATA (red)** | The depth sensor has stopped delivering readings while submerged. Every value on screen is frozen, not live — treat it as unreliable and consult a backup gauge or computer. Clears the moment a fresh reading arrives. |
+| **SURFACED — DIVE ENDING IN n s** | You have broken the surface and the dive is winding down: a calm teal countdown runs the wave-chop grace period (about a minute). Re-submerge within it — a quick look around, wave chop — and the same dive simply continues. Let it reach zero and the dive is logged and the surface screen takes over. This is the normal end of a dive, not a fault: the sensor stops sending readings above water by design. |
+| **NO DATA (red)** | The depth sensor stopped delivering readings while you were still genuinely submerged — not the same as surfacing (that shows the SURFACED countdown). Every value on screen is frozen, not live — treat it as unreliable and consult a backup gauge or computer. Clears the moment a fresh reading arrives. |
 | **SAFETY STOP ring** | Advisory 3-min hold at 5 m after dives beyond 10 m. The ring shows the countdown and your live depth — hold it near 5 m. A mandatory deco stop always wins the screen; after a deco dive the countdown starts once the last mandatory stop is cleared (do the safety stop anyway — recommended practice). Success buzz when done. |
-| **Dive Log** | After surfacing: profile sparkline, max depth, dive time, min temperature, end GF, running surface interval, and the no-fly estimate. |
+| **Dive Log** | After surfacing: profile sparkline, max depth, dive time, min temperature, end GF, running surface interval, and the no-fly estimate. Open the Logbook page for past dives — tap one to see its full detail, including a map of where you entered the water. |
 
 ## Vibrations
 
@@ -124,9 +139,9 @@ Three levels, matching the colours:
 
 | Term | Meaning |
 |---|---|
-| **Single tap** | Caution: NDL warning reached, approaching the sensor depth limit, or the battery has dropped below 20 % while diving. |
+| **Single tap** | Caution: NDL warning reached, approaching the sensor depth limit, the CNS oxygen clock crossed 80 %, or the battery has dropped below 20 % while diving. |
 | **Distinct prompt** | State change into mandatory decompression. |
-| **Strong, repeating buzz** | Act now — above a mandatory stop, ascending too fast, past the sensor limit, past the gas's MOD, the depth sensor has gone silent (NO DATA), or the battery has dropped below 10 % while diving (BATTERY CRITICAL). It repeats until the situation is corrected. |
+| **Strong, repeating buzz** | Act now — above a mandatory stop, ascending too fast, past the sensor limit, past the gas's MOD, the CNS oxygen clock at 100 %, the depth sensor has gone silent (NO DATA), or the battery has dropped below 10 % while diving (BATTERY CRITICAL). It repeats until the situation is corrected. |
 | **Success pattern** | Safety stop completed — clear to surface (advisory). |
 
 ## Warnings and honesty
@@ -138,6 +153,7 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 | **Plan truncated — do not trust** | The deco plan could not be computed to the end. Treat displayed values as broken; dive your certified computer. |
 | **n sensor readings dropped** | Invalid sensor samples were rejected (they never touch the model). A handful is normal noise; many = scrutinize the whole profile. |
 | **PAST MOD x m — ppO₂ HIGH** | Deeper than the configured gas's MOD: oxygen toxicity risk. Ascend above the MOD. |
+| **CNS x % — ASCEND** | The cumulative oxygen clock has crossed 80 % of the NOAA limit (amber; red “CNS LIMIT” at 100 %, with a repeating buzz). Ascend to shallower depth — the clock only recovers where the oxygen partial pressure is low — and end the exposure. Especially relevant on repetitive nitrox days: MOD alone does not see the accumulated dose. |
 | **Tissue loading restored…** | The app was restarted and resumed the saved tissue state, off-gassed across the gap. Normal after closing the app between dives. |
 | **Restored after an interrupted dive — estimate degraded** | The app went down mid-dive; the gap was bridged conservatively by assumption. Trust only the certified computer for the rest of the day. |
 | **Depth sensor fault** | The watch itself flagged its depth reading as unreliable. The display can no longer be trusted for this dive. |
@@ -156,6 +172,8 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 | **MOD** | Maximum Operating Depth of the gas: deeper than this, oxygen partial pressure exceeds 1.4 bar (toxicity risk). Each gas row in Settings shows its MOD. |
 | **EAN** | Enriched Air Nitrox; EAN32 = 32 % oxygen. More O₂ = longer NDL but shallower MOD. |
 | **ppO₂** | Oxygen partial pressure in bar. Recreational working limit: 1.4. |
+| **CNS** | Central-nervous-system oxygen toxicity, as % of the NOAA exposure limit. Accumulates whenever ppO₂ exceeds 0.5 bar (faster the higher it is), recovers at the surface with a 90-minute half-time, and carries across repetitive dives. Amber at 80 %, red with a repeating buzz at 100 %. |
+| **OTU** | Oxygen Toxicity Units — the whole-body (pulmonary) oxygen dose of the dive day, shown against the NOAA single-day allowance of 300. Resets once the tissues are fully rested (a new dive day). Informational: CNS is the guarded limit. |
 | **LIMIT** | The depth sensor's maximum operating depth (40 m on this hardware/entitlement). Beyond it the watch's depth data is unreliable. |
 | **NO FLY** | Model estimate of the wait before flying (0.75 bar cabin). Read as “at least”: DAN guidelines (12 h after one no-deco dive, 18 h after repetitive dives) apply independently. |
 | **END GF** | Surfacing gradient factor at the moment you left the water — the log's “how close was that” number. |
@@ -171,5 +189,7 @@ A visible failure beats a plausible wrong number. These lines can appear at the 
 | **Gradient factors** | 30/70 conservative → 50/95 aggressive. When in doubt, keep 45/85 or ask your instructor. Lower numbers = earlier, longer stops. |
 | **Water** | Salt (default) or fresh. The depth sensor is calibrated for salt water; in fresh water the same pressure means a slightly greater depth, so Nullzeit corrects the displayed depth (~2 % deeper). Tissue loading follows the measured pressure and is unaffected. |
 | **Altitude** | For mountain-lake diving; sets the surface pressure (shown per preset). Mountain lakes are fresh water — set Water to Fresh as well. Assumes you are already acclimatized at the site — arriving and diving immediately makes the model optimistic. |
+| **Mode** | Computer (default) shows full deco guidance. Gauge is a bottom timer: depth and time only, no NDL/stops/TTS — for divers who plan by tables. Tissue and oxygen tracking keep running in the background, so switching back stays conservative. After a degraded recovery, Gauge engages by itself and clears once the tissues are rested; that forcing has no off switch. |
+| **Night mode** | A dim, red-only display for night dives: red light is easiest on a dark-adapted eye, so it stays readable in the dark without spoiling your night vision the way the normal teal/amber screen would. Because it collapses every colour to red, the traffic-light coding is gone — the warning text and the vibrations carry the state instead (they always do; at night they are all you have). Surface-only toggle, like every setting. |
 | **Locked during the dive** | Settings only work at the surface, by design — no configuration surprises underwater. |
 
